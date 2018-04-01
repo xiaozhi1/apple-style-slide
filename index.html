@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>苹果风格轮播</title>
+
+</head>
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<style>
+    .images {
+        display: flex;
+        align-items: flex-start;
+        transition: all 0.5s;
+        /* border: 1px solid red; */
+    }
+    .window {
+        /* border: 1px solid black; */
+        width: 300px;
+        overflow: hidden;
+        border-radius: 10px;
+        margin: 30px auto 25px;
+        box-shadow: 0 0 1.5em black
+    }
+    .pictures{
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .pictures > button{
+        border-radius: 3px;
+        color:inherit; 
+        font-weight: bold;
+        margin: 0 15px;
+        box-shadow: 0 0 0.5em gray;
+        font-family: Georgia, serif;
+    }
+    .active{
+        background: #5fc99a;
+        /* color: #5fc99a; */
+        opacity: 0.6;
+    }
+</style>
+<body>
+    <div class="window">
+        <div class="images" id=images>
+            <img src="1.jpg" width=300>
+            <img src="2.jpg" width=300>
+            <img src="3.jpg" width=300>
+        </div>
+    </div>
+    <div class="pictures">
+        <button id="p1">第一张</button>
+        <button id="p2">第二张</button>
+        <button id="p3">第三张</button>
+    </div>
+</body>
+<script>
+    var allButtons = $('.pictures > button')
+    for (let i = 0; i < allButtons.length; i++) {
+        $(allButtons[i]).on('click', function(x) {
+            allButtons.eq(i)
+            .addClass('active')
+            .siblings('.active').removeClass('active')
+        })
+    }
+    // var allButtons = $('#buttons > span')
+    // for (let i = 0; i < allButtons.length; i++) {
+    //     $(allButtons[i]).on('click', function(x) {
+    //         var index = $(x.currentTarget).index()
+    //         var p = index * -300
+    //         $('#images').css({
+    //         transform: 'translateX(' + p + 'px)'
+    //         })
+    //         n = index
+    //         allButtons.eq(n)
+    //         .addClass('red')
+    //         .siblings('.red').removeClass('red')
+    //     })
+    // }
+
+
+
+    $('button').click(function(){
+        $(this).addClass("active");
+    });
+    $(p1).on('click', function () {
+        $(images).css({
+            transform: 'translateX(0)'
+        })
+    })
+    $(p2).on('click', function () {
+        $(images).css({
+            transform: 'translateX(-300px)'
+        })
+    })
+    $(p3).on('click', function () {
+        $(images).css({
+            transform: 'translateX(-600px)'
+        })
+    })
+</script>
+</html>
